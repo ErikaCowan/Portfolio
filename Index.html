@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Erika Cowan | Portfolio</title>
+  <style>
+    :root {
+      --color-primary: #2c3e50;
+      --color-accent: #2980b9;
+      --color-bg: #ffffff;
+      --color-text: #333333;
+    }
+    /* Reset */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: var(--color-bg); color: var(--color-text); }
+    a { color: var(--color-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Splash Screen */
+    #splash {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: var(--color-bg); display: flex;
+      align-items: center; justify-content: center;
+      z-index: 1000;
+      animation: fadeOut 0.8s ease-out 1s forwards;
+    }
+    .loader {
+      width: 60px; height: 60px;
+      border: 6px solid #ecf0f1;
+      border-top: 6px solid var(--color-primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
+
+    /* Navigation */
+    nav { background: var(--color-bg); padding: 1rem 0; position: sticky; top: 0; border-bottom: 1px solid #ecf0f1; }
+    nav .container { width: 90%; max-width: 900px; margin: 0 auto; display: flex; justify-content: flex-end; }
+    nav a { margin-left: 1.5rem; font-weight: 500; color: var(--color-text); }
+    nav a:hover { color: var(--color-accent); }
+
+    /* Header */
+    header { text-align: center; padding: 4rem 1rem; }
+    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--color-primary); }
+    header p { font-size: 1.125rem; color: var(--color-text); }
+    .buttons { margin-top: 1.5rem; }
+    .buttons a { margin: 0 0.5rem; }
+    .btn {
+      display: inline-block; padding: 0.75rem 1.5rem;
+      border: 2px solid var(--color-primary);
+      border-radius: 4px; color: var(--color-primary);
+      font-weight: 500; transition: background 0.3s, color 0.3s;
+    }
+    .btn:hover { background: var(--color-primary); color: #fff; }
+
+    /* Sections */
+    section { padding: 3rem 1rem; width: 90%; max-width: 900px; margin: 0 auto; }
+    section:nth-child(even) { background: #f9f9f9; }
+    section h2 {
+      font-size: 2rem; margin-bottom: 1rem;
+      border-bottom: 2px solid var(--color-accent);
+      padding-bottom: 0.25rem;
+    }
+    section p { margin-top: 1rem; line-height: 1.6; }
+
+    /* Projects Grid */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .project-card {
+      background: #fff; border: 1px solid #ecf0f1;
+      border-radius: 5px; overflow: hidden;
+    }
+    .project-card img { width: 100%; height: auto; }
+    .project-card .content { padding: 1rem; }
+    .project-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--color-primary); }
+    .project-card p { font-size: 0.95rem; color: #555; }
+
+    /* Footer */
+    footer { text-align: center; padding: 2rem 1rem; font-size: 0.875rem; color: #777; }
+  </style>
+</head>
+<body>
+  <div id="splash"><div class="loader"></div></div>
+  <nav>
+    <div class="container">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Erika Cowan</h1>
+    <p>Educator • Developer • Analyst • Project Manager</p>
+    <div class="buttons">
+      <a href="#projects" class="btn">View Projects</a>
+      <a href="/Erika_Cowan_Resume_ATS.pdf" class="btn">Download Résumé</a>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I’m an instructional technology leader who builds and automates data-driven solutions that empower teachers and improve student outcomes. From streamlining district reporting to designing interactive lesson plans, I bridge the gap between educational goals and technology.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <!-- Example Project Card -->
+      <div class="project-card">
+        <img src="images/project1.png" alt="Project 1">
+        <div class="content">
+          <h3>Finance Dashboard Automation</h3>
+          <p>Reduced report time by 35% with a Python/SQL pipeline, cutting manual errors in half.</p>
+        </div>
+      </div>
+      <!-- Add more project cards here -->
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:erikajocowan2014@gmail.com">erikajocowan2014@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/erikacowan" target="_blank" rel="noopener">github.com/erikacowan</a></p>
+  </section>
+
+  <footer>&copy; 2025 Erika Cowan</footer>
+</body>
+</html>
