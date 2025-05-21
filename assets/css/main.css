@@ -745,6 +745,10 @@ header #menu-btn:hover{
     margin-top: 1.5rem;
 }
 
+.demo-details {
+    color: #f1f1f1;
+  }
+
 .portfolio-item:hover .content{
     -webkit-transform: scale(1);
             transform: scale(1);
