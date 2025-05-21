@@ -646,45 +646,54 @@
     </script>
 
 <!-- Contact-Form Script -->
-<!-- **Contact-Form Script** -->
 <script>
-  (function($){
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwV5LWjvlVrumfKD2QlFTqocFKdbjDBq4AHU8XzBanS-cVgG52iPuyXJvIeUCVBMh_cYg/exec';
+  (function(){
+    const FORM_ID   = 'contactUs-Form';
+    const BTN_ID    = 'submit';
+    const MSG_ID    = 'msg';
+    const ENDPOINT  = 'https://script.google.com/macros/s/AKfycbwV5LWjvlVrumfKD2QlFTqocFKdbjDBq4AHU8XzBanS-cVgG52iPuyXJvIeUCVBMh_cYg/exec';
 
-    $('#contactUs-Form').on('submit', function(e) {
-      e.preventDefault();
-      const $form   = $(this);
-      const $msg    = $('#msg');
-      const $submit = $('#submit');
+    document.getElementById(FORM_ID)
+      .addEventListener('submit', function(e) {
+        e.preventDefault();
 
-      $msg.text('');  
-      $submit.text('Please wait…').prop('disabled', true);
+        const form    = e.target;
+        const submit  = document.getElementById(BTN_ID);
+        const msg     = document.getElementById(MSG_ID);
 
-      const payload = {
-        name:    $form.find('[name="name"]').val(),
-        email:   $form.find('[name="email"]').val(),
-        subject: $form.find('[name="subject"]').val(),
-        message: $form.find('[name="message"]').val()
-      };
+        // disable & feedback
+        submit.textContent = 'Please wait…';
+        submit.disabled   = true;
+        msg.textContent   = '';
 
-      fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode:   'no-cors',
-        headers:{ 'Content-Type':'application/json' },
-        body:   JSON.stringify(payload)
-      })
-      .then(() => {
-        $msg.text('Thanks! Your message has been sent.');
-        $submit.text('send message').prop('disabled', false);
-        $form[0].reset();
-      })
-      .catch((err) => {
-        console.error(err);
-        $msg.text('Oops, something went wrong.').addClass('error');
-        $submit.text('send message').prop('disabled', false);
+        // build payload
+        const payload = {
+          name:    form.name.value.trim(),
+          email:   form.email.value.trim(),
+          subject: form.subject.value.trim(),
+          message: form.message.value.trim()
+        };
+
+        fetch(ENDPOINT, {
+          method: 'POST',
+          mode:   'no-cors',
+          headers: {'Content-Type':'application/json'},
+          body:    JSON.stringify(payload)
+        })
+        .then(() => {
+          msg.textContent = 'Thanks! Your message has been sent.';
+          form.reset();
+        })
+        .catch(err => {
+          console.error(err);
+          msg.textContent = 'Oops, something went wrong.';
+        })
+        .finally(() => {
+          submit.textContent = 'send message';
+          submit.disabled   = false;
+        });
       });
-    });
-  })(jQuery);
+  })();
 </script>
 
 </body>
