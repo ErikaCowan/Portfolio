@@ -539,15 +539,14 @@
         </div>
       </div><!-- /.contact-info -->
   
-    <!-- **Your form** -->
-    <<!-- **Contact Form** -->
+<!-- Contact Form -->
 <form id="contactUs-Form" class="contact-form">
   <input type="text"   name="name"    class="box" placeholder="Name"    required />
   <input type="email"  name="email"   class="box" placeholder="Email"   required />
   <input type="text"   name="subject" class="box" placeholder="Subject" required />
-  <textarea           name="message" class="box" placeholder="Message"></textarea>
-  <button type="submit" class="btn" id="submit">send message</button>
-  <span class="alert" id="msg"></span>
+  <textarea           name="message" class="box" placeholder="Message" required></textarea>
+  <button type="submit" id="submit" class="btn">send message</button>
+  <span id="msg" class="alert"></span>
 </form>
 
   </div><!-- /.box-container -->
@@ -645,54 +644,50 @@
         });
     </script>
 
-<!-- Contact-Form Script -->
 <script>
   (function(){
-    const FORM_ID   = 'contactUs-Form';
-    const BTN_ID    = 'submit';
-    const MSG_ID    = 'msg';
-    const ENDPOINT  = 'https://script.google.com/macros/s/AKfycbwi-gMd-Mj7-mhZUWYd3pUKwHYOp-GJ8UXqZ_-GJl9lZ-ZwuoRWr9NwUcpmx5UUzCt-Cw/exec';
+    const FORM_ID  = 'contactUs-Form';
+    const BTN_ID   = 'submit';
+    const MSG_ID   = 'msg';
+    const ENDPOINT = 'https://script.google.com/macros/s/AKfycbyDn6uAx_g5_4d0TUkuNwK2d-FoY1OpMhHjOjhQqc42G5s90tHG3n2E0XT2yMgdZqbeYg/exec';
 
-    document.getElementById(FORM_ID)
-      .addEventListener('submit', function(e) {
-        e.preventDefault();
+    const form   = document.getElementById(FORM_ID);
+    const submit = document.getElementById(BTN_ID);
+    const msg    = document.getElementById(MSG_ID);
 
-        const form    = e.target;
-        const submit  = document.getElementById(BTN_ID);
-        const msg     = document.getElementById(MSG_ID);
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      submit.disabled     = true;
+      submit.textContent  = 'Please wait…';
+      msg.textContent     = '';
 
-        // disable & feedback
-        submit.textContent = 'Please wait…';
-        submit.disabled   = true;
-        msg.textContent   = '';
+      const payload = {
+        name:    form.elements['name'].value.trim(),
+        email:   form.elements['email'].value.trim(),
+        subject: form.elements['subject'].value.trim(),
+        message: form.elements['message'].value.trim()
+      };
+      console.log('Sending payload:', payload);
 
-        // build payload
-        const payload = {
-          name:    form.name.value.trim(),
-          email:   form.email.value.trim(),
-          subject: form.subject.value.trim(),
-          message: form.message.value.trim()
-        };
-
-        fetch(ENDPOINT, {
-          method: 'POST',
-          mode:   'no-cors',
-          headers: {'Content-Type':'application/json'},
-          body:    JSON.stringify(payload)
-        })
-        .then(() => {
-          msg.textContent = 'Thanks! Your message has been sent.';
-          form.reset();
-        })
-        .catch(err => {
-          console.error(err);
-          msg.textContent = 'Oops, something went wrong.';
-        })
-        .finally(() => {
-          submit.textContent = 'send message';
-          submit.disabled   = false;
-        });
+      fetch(ENDPOINT, {
+        method: 'POST',
+        mode:   'no-cors',
+        headers:{ 'Content-Type':'application/json' },
+        body:    JSON.stringify(payload)
+      })
+      .then(() => {
+        msg.textContent = 'Thanks! Your message has been sent.';
+        form.reset();
+      })
+      .catch(err => {
+        console.error(err);
+        msg.textContent = 'Oops, something went wrong.';
+      })
+      .finally(() => {
+        submit.disabled    = false;
+        submit.textContent = 'send message';
       });
+    });
   })();
 </script>
 
