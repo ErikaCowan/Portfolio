@@ -540,10 +540,10 @@
       </div><!-- /.contact-info -->
   
       <form method="post" class="contact-form" id="contactUs-Form">
-        <input type="text" name="name" class="box" id="name" placeholder="Name" required />
-        <input type="email" name="email" class="box" id="email" placeholder="Email" required />
-        <input type="text" name="subject" class="box" id="subject" placeholder="Subject" required />
-        <textarea cols="30" rows="10" name="comment" id="comment" class="box" placeholder="Message"></textarea>
+        <input type="text"   name="name"    class="box" id="name"    placeholder="Name"    required />
+        <input type="email"  name="email"   class="box" id="email"   placeholder="Email"   required />
+        <input type="text"   name="subject" class="box" id="subject" placeholder="Subject" required />
+        <textarea            name="comment" class="box" id="comment" placeholder="Message" rows="6"></textarea>
         <button type="submit" class="btn" name="submit" id="submit">send message</button>
         <span class="alert" id="msg"></span>
       </form><!-- /.contact-form -->
@@ -643,26 +643,46 @@
         });
     </script>
 
-    <!-- Contact-Form Script -->
-    <script>
-        jQuery('#contactUs-Form').on('submit',function(e){
-          jQuery('#msg').html('');
-          jQuery('#submit').html('Please wait');
-          jQuery('#submit').attr('disabled',true);
-          jQuery.ajax({
-              url:'assets/php/submit.php',
-              type:'post',
-              data:jQuery('#contactUs-Form').serialize(),
-              success:function(result){
-                  jQuery('#msg').html(result);
-                  jQuery('#submit').html('Submit');
-                  jQuery('#submit').attr('disabled',false);
-                  jQuery('#contactUs-Form')[0].reset();
-              }
-          });
-          e.preventDefault();
-        });
-    </script>
+<script>
+  (function($){
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzavKdJI1EgP7tO96lYbGjM7hzLZMfbFkGR3QAksGFcn-yIhabd3_KMYI8rrV9khfQz/exec';
+
+    $('#contactUs-Form').on('submit', function(e) {
+      e.preventDefault();
+      const $form   = $(this);
+      const $msg    = $('#msg');
+      const $submit = $('#submit');
+
+      $msg.text('');
+      $submit.text('Please wait…').prop('disabled', true);
+
+      // collect form values (note 'comment' here, not 'message')
+      const payload = {
+        name:    $('#name').val(),
+        email:   $('#email').val(),
+        subject: $('#subject').val(),
+        comment: $('#comment').val()
+      };
+
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode:   'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(payload)
+      })
+      .then(() => {
+        $msg.text('Thanks! Your message has been sent.');
+        $submit.text('Submit').prop('disabled', false);
+        $form[0].reset();
+      })
+      .catch((err) => {
+        console.error(err);
+        $msg.text('Oops, something went wrong.').addClass('error');
+        $submit.text('Submit').prop('disabled', false);
+      });
+    });
+  })(jQuery);
+</script>
 
 </body>
 </html>
