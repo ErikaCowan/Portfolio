@@ -540,14 +540,15 @@
       </div><!-- /.contact-info -->
   
     <!-- **Your form** -->
-    <form id="contactUs-Form" class="contact-form">
-      <input type="text"   name="name"    class="box" placeholder="Name"    required />
-      <input type="email"  name="email"   class="box" placeholder="Email"   required />
-      <input type="text"   name="subject" class="box" placeholder="Subject" required />
-      <textarea            name="message" class="box" placeholder="Message"></textarea>
-      <button type="submit" class="btn" id="submit">send message</button>
-      <span class="alert" id="msg"></span>
-    </form><!-- /.contact-form -->
+    <<!-- **Contact Form** -->
+<form id="contactUs-Form" class="contact-form">
+  <input type="text"   name="name"    class="box" placeholder="Name"    required />
+  <input type="email"  name="email"   class="box" placeholder="Email"   required />
+  <input type="text"   name="subject" class="box" placeholder="Subject" required />
+  <textarea           name="message" class="box" placeholder="Message"></textarea>
+  <button type="submit" class="btn" id="submit">send message</button>
+  <span class="alert" id="msg"></span>
+</form>
 
   </div><!-- /.box-container -->
 
@@ -645,9 +646,10 @@
     </script>
 
 <!-- Contact-Form Script -->
+<!-- **Contact-Form Script** -->
 <script>
   (function($){
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzavKdJI1EgP7tO96lYbGjM7hzLZMfbFkGR3QAksGFcn-yIhabd3_KMYI8rrV9khfQz/exec';
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwV5LWjvlVrumfKD2QlFTqocFKdbjDBq4AHU8XzBanS-cVgG52iPuyXJvIeUCVBMh_cYg/exec';
 
     $('#contactUs-Form').on('submit', function(e) {
       e.preventDefault();
@@ -655,7 +657,7 @@
       const $msg    = $('#msg');
       const $submit = $('#submit');
 
-      $msg.text('');
+      $msg.text('');  
       $submit.text('Please wait…').prop('disabled', true);
 
       const payload = {
@@ -668,18 +670,18 @@
       fetch(SCRIPT_URL, {
         method: 'POST',
         mode:   'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify(payload)
+        headers:{ 'Content-Type':'application/json' },
+        body:   JSON.stringify(payload)
       })
       .then(() => {
         $msg.text('Thanks! Your message has been sent.');
-        $submit.text('Submit').prop('disabled', false);
+        $submit.text('send message').prop('disabled', false);
         $form[0].reset();
       })
       .catch((err) => {
         console.error(err);
         $msg.text('Oops, something went wrong.').addClass('error');
-        $submit.text('Submit').prop('disabled', false);
+        $submit.text('send message').prop('disabled', false);
       });
     });
   })(jQuery);
