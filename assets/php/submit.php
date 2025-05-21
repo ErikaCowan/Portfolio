@@ -28,8 +28,8 @@ if (
     $mail->Port       = 587;
     $mail->SMTPSecure = 'tls';
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'erikasbusinessolutions@gmail.com';
-    $mail->Password   = 'omwgfizahmuzvxcd';
+    $mail->Username   = '';
+    $mail->Password   = '';
 
     // sender & recipient
     $mail->setFrom($email, $name);
