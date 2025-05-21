@@ -539,19 +539,20 @@
         </div>
       </div><!-- /.contact-info -->
   
-      <form method="post" class="contact-form" id="contactUs-Form">
-        <input type="text"   name="name"    class="box" id="name"    placeholder="Name"    required />
-        <input type="email"  name="email"   class="box" id="email"   placeholder="Email"   required />
-        <input type="text"   name="subject" class="box" id="subject" placeholder="Subject" required />
-        <textarea            name="comment" class="box" id="comment" placeholder="Message" rows="6"></textarea>
-        <button type="submit" class="btn" name="submit" id="submit">send message</button>
-        <span class="alert" id="msg"></span>
-      </form><!-- /.contact-form -->
-  
-    </div><!-- /.box-container -->
-  
-  </section>
-  <!-- Contact Area (End) -->
+    <!-- **Your form** -->
+    <form id="contactUs-Form" class="contact-form">
+      <input type="text"   name="name"    class="box" placeholder="Name"    required />
+      <input type="email"  name="email"   class="box" placeholder="Email"   required />
+      <input type="text"   name="subject" class="box" placeholder="Subject" required />
+      <textarea            name="message" class="box" placeholder="Message"></textarea>
+      <button type="submit" class="btn" id="submit">send message</button>
+      <span class="alert" id="msg"></span>
+    </form><!-- /.contact-form -->
+
+  </div><!-- /.box-container -->
+
+</section>
+<!-- Contact Area (End) -->
     <!-------------------- Contact Area (End) -------------------->
 
 
@@ -643,6 +644,7 @@
         });
     </script>
 
+<!-- Contact-Form Script -->
 <script>
   (function($){
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzavKdJI1EgP7tO96lYbGjM7hzLZMfbFkGR3QAksGFcn-yIhabd3_KMYI8rrV9khfQz/exec';
@@ -656,12 +658,11 @@
       $msg.text('');
       $submit.text('Please wait…').prop('disabled', true);
 
-      // collect form values (note 'comment' here, not 'message')
       const payload = {
-        name:    $('#name').val(),
-        email:   $('#email').val(),
-        subject: $('#subject').val(),
-        comment: $('#comment').val()
+        name:    $form.find('[name="name"]').val(),
+        email:   $form.find('[name="email"]').val(),
+        subject: $form.find('[name="subject"]').val(),
+        message: $form.find('[name="message"]').val()
       };
 
       fetch(SCRIPT_URL, {
