@@ -246,19 +246,18 @@ header #menu-btn:hover{
     gap: 4rem;
 }
 
-.home .image{
+.home .image {
+    width: 32rem;      /* match About’s container width */
     text-align: center;
-    -webkit-box-flex: 1;
-      -ms-flex: 1 1 40rem;
-          flex: 1 1 40rem;
-
 }
 
-.home .image img{
-    height: 40rem;
-    width: 40rem;
-    border-radius: 50% 50% 50% 50% / 30% 30% 70% 70% ;
-    object-fit:cover;
+.home .image img {
+    width: 100%;       /* fill that container */
+    height: auto;      /* keep its natural aspect ratio */
+    border: 1rem solid var(--purple);
+    /* remove any rounding so it stays a rectangle */
+    border-radius: 0;
+    object-fit: cover;
 }
 
 .home .content{
@@ -311,123 +310,95 @@ header #menu-btn:hover{
 
 
 /*--------------------- 5- About Area CSS (Start) ---------------------*/
-.about .box-container{
-    display: -webkit-box;
-    display: -ms-flexbox;
+.about .box-container {
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -ms-flex-wrap: wrap;
+    justify-content: space-between;   /* push .content to left, .counting to right */
+    align-items: flex-start;           /* align both items at the top */
     flex-wrap: wrap;
     gap: 2rem;
     padding: 2rem 0;
 }
 
-.about .image{
-    width: 32rem;
-    text-align: center;
+/* remove the image entirely—no .about .image rules needed */
+
+.about .content {
+    flex: 1 1 55rem;                   /* roughly 55rem wide, but will shrink if needed */
+    order: 1;                          /* ensure this always comes first */
 }
 
-.about .image img{
-    width: 100%;
-    border: 1rem solid var(--purple);
-}
-
-.about .content{
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 55rem;
-        flex: 1 1 55rem;
-}
-
-.about .content h2{
+.about .content h2 {
     font-size: 3rem;
     color: var(--white);
     padding-bottom: 1rem;
 }
 
-.about .content > p{
+.about .content > p {
     font-size: 1.6rem;
     color: var(--grey);
     line-height: 1.6;
     padding-bottom: 1rem;
 }
 
-.about .content .about-info{
-    display: -webkit-box;
-    display: -ms-flexbox;
+.about .content .about-info {
     display: flex;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-        justify-content: flex-start;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
+    justify-content: flex-start;
     align-items: center;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     gap: 1rem;
 }
 
-.about .content .about-info .info{
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 15rem;
-        flex: 1 1 15rem;
+.about .content .about-info .info {
+    flex: 1 1 15rem;
 }
 
-.about .content .about-info .info h4{
+.about .content .about-info .info h4 {
     font-size: 1.6rem;
     color: var(--white);
     padding-bottom: 1rem;
 }
 
-.about .content .about-info .info span{
+.about .content .about-info .info span {
     font-size: 1.6rem;
     font-weight: 400;
     color: var(--grey);
 }
 
-.about .content .about-info .info .btn{
+.about .content .about-info .info .btn {
     margin-top: 1rem;
 }
 
-.counting{
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 35rem;
-        flex: 1 1 35rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
+.counting {
+    flex: 1 1 35rem;
+    order: 2;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
+    flex-wrap: wrap;
+    align-items: stretch;    /* <-- changed from center */
     justify-content: center;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
     gap: 1rem;
 }
 
-.counting .box{
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 18rem;
-        flex: 1 1 18rem;
+.counting .box {
+    flex: 1 1 18rem;
+    display: flex;           /* make each box a flex-container */
+    flex-direction: column;  /* stack its children vertically */
+    justify-content: center; /* center the number and label vertically */
     text-align: center;
     background-color: #222;
     padding: 2rem;
 }
 
-.counting .box .count{
+/* the rest stays the same */
+.counting .box .count {
     font-size: 3.5rem;
     color: var(--purple);
     padding-bottom: 0.5rem;
 }
 
-.counting .box h3{
+.counting .box h3 {
     font-size: 1.8rem;
     color: var(--white);
 }
-
+/*--------------------- 5- About Area CSS (End) ---------------------*/
 .skill-container{
     padding: 2rem 0;
 }
