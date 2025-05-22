@@ -1199,17 +1199,14 @@ footer .content p span{
 
   
 /*--------------------- 13- Scroll-Top (End) ---------------------*/
+/*------------------------------------------------------------------*/
+/* 1-line typing header on mobile: no wrapping, fluid font size     */
+/*------------------------------------------------------------------*/
 @media (max-width: 768px) {
     .home .content h1 {
-      /* allow wrapping again */
-      white-space: normal;
-  
-      /* match your desktop font size & padding */
-      font-size: 4rem;
-      padding: 1rem 0;
-  
-      /* two lines × (4rem × 1.2 line-height) + 2rem padding = ~12rem total */
-      line-height: 1.2;
-      min-height: 12rem;
+      /* allow the font to scale down, but never below 2.5rem or above 4rem */
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      white-space: nowrap;      /* absolutely no wrapping */
+      overflow-x: auto;         /* allow horizontal scroll if it *does* overflow */
     }
   }
