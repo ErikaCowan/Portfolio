@@ -1200,13 +1200,9 @@ footer .content p span{
   
 /*--------------------- 13- Scroll-Top (End) ---------------------*/
 @media (max-width: 768px) {
-    /* 1) Never wrap the typed line */
+    /* 1) keep the header text from collapsing in height */
     .home .content h1 {
-      white-space: nowrap;
-    }
-  
-    /* 2) Append non-breaking spaces after the dynamic text */
-    .home .content h1 .typing-text::after {
-      content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+      line-height: 1.2;             /* keep a tight but readable line spacing */
+      min-height: 9.6rem;           /* reserve space for up to two lines of 4rem text */
     }
   }
