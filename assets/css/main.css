@@ -1197,4 +1197,20 @@ footer .content p span{
     color:var(--black);
   }
 
+  
 /*--------------------- 13- Scroll-Top (End) ---------------------*/
+/*-------------------------------------------------------------------------*/
+/*  Mobile fix: keep typing header from wrapping or shifting on long words */
+/*-------------------------------------------------------------------------*/
+@media (max-width: 768px) {
+    /* Don’t let h1 wrap to a second line */
+    .home .content h1 {
+      white-space: nowrap;
+    }
+  
+    /* Reserve enough width for the longest word so shorter words leave blank space */
+    .typing-text {
+      display: inline-block;
+      min-width: 20ch;  /* adjust “20” to roughly match the length of your longest string */
+    }
+  }
