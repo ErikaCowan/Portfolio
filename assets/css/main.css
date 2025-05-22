@@ -1200,9 +1200,16 @@ footer .content p span{
   
 /*--------------------- 13- Scroll-Top (End) ---------------------*/
 @media (max-width: 768px) {
-    /* 1) keep the header text from collapsing in height */
     .home .content h1 {
-      line-height: 1.2;             /* keep a tight but readable line spacing */
-      min-height: 9.6rem;           /* reserve space for up to two lines of 4rem text */
+      /* allow wrapping again */
+      white-space: normal;
+  
+      /* match your desktop font size & padding */
+      font-size: 4rem;
+      padding: 1rem 0;
+  
+      /* two lines × (4rem × 1.2 line-height) + 2rem padding = ~12rem total */
+      line-height: 1.2;
+      min-height: 12rem;
     }
   }
