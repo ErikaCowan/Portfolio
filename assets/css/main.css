@@ -20,23 +20,28 @@
 
 
 /*--------------------- 0- Global CSS (Start) ---------------------*/
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap');
 
 :root{
-    --purple: #BC8CF2;
-    --black: #000000;
-    --white: #F7F5F2;
-    --grey: #DFDFDE;
+    --accent: #D9A441;      /* brass gold */
+    --accent-deep: #B8862B;
+    --ink: #0F2138;         /* page background, deep navy */
+    --panel: #172D4A;       /* raised surfaces */
+    --panel-2: #20395B;
+    --line: rgba(242, 239, 232, 0.14);
+    --white: #F2EFE8;       /* primary text */
+    --grey: #B7C2D0;        /* secondary text */
+    --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --sans: 'Source Sans 3', 'Segoe UI', Arial, sans-serif;
 }
 
 *{
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--sans);
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     margin: 0;
     padding: 0;
     text-decoration: none;
-    text-transform: capitalize;
     border: none;
     outline: none;
     -webkit-transition: all 0.2s linear;
@@ -47,7 +52,7 @@
 
 *::selection{
     color: var(--white);
-    background-color: var(--purple);
+    background-color: var(--accent);
 }
 
 html{
@@ -58,7 +63,7 @@ html{
 }
 
 body{
-    background-color: var(--black);
+    background-color: var(--ink);
 }
 
 section{
@@ -71,11 +76,11 @@ section{
 
 ::-webkit-scrollbar-thumb{
     border-radius: 1rem;
-    background-color: var(--purple);
+    background-color: var(--accent);
 }
 
 ::-webkit-scrollbar-track{
-    background-color: var(--black);
+    background-color: var(--ink);
 }
 
 .swiper-pagination-bullet{
@@ -87,7 +92,7 @@ section{
 
 .swiper-pagination-bullet-active{
     width: 3rem;
-    background: var(--purple);
+    background: var(--accent);
 }
 
 /*--------------------- 0- Global CSS (End) ---------------------*/
@@ -102,7 +107,7 @@ section{
 .heading h2{
     text-align: center;
     padding-bottom: 2rem;
-    color:var(--purple);
+    color:var(--accent);
     font-size: 4rem;
 }
 
@@ -117,7 +122,7 @@ section{
     position: absolute;
     bottom: -0.5rem; left: 0;
     z-index: -1;
-    background: var(--purple);
+    background: var(--accent);
     height: 0.2rem;
     width: 80%;
     margin-left: 10%;
@@ -132,9 +137,9 @@ section{
     display: inline-block;
     padding: 1rem 2rem;
     font-size: 1.8rem;
-    color: var(--purple);
+    color: var(--accent);
     background-color: transparent;
-    border: 0.2rem solid var(--purple);
+    border: 0.2rem solid var(--accent);
 }
 
 .btn i{
@@ -143,7 +148,7 @@ section{
 
 .btn:hover{
     color: var(--white);
-    background-color: var(--purple);
+    background-color: var(--accent);
     cursor: pointer;
 }
 
@@ -177,13 +182,13 @@ header{
 
 header.sticky{
     border-bottom: 0.1rem solid var(--grey);
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(15, 33, 56, 0.95);
 }
 
 header .logo h2{
     font-size: 2.5rem;
     font-weight: 900;
-    color: var(--purple);
+    color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 0.2rem;
 }
@@ -196,7 +201,7 @@ header .navbar a{
 
 header .navbar a:hover,
 header .navbar a.active{
-    color: var(--purple);
+    color: var(--accent);
 }
 
 header #menu-btn{
@@ -216,7 +221,7 @@ header .fa-times{
 }
 
 header #menu-btn:hover{
-    color: var(--purple);
+    color: var(--accent);
 }
 
 /*--------------------- 3- Header Area CSS (End) ---------------------*/
@@ -226,7 +231,7 @@ header #menu-btn:hover{
 /*--------------------- 4- Home Area CSS (Start) ---------------------*/
 .home{
     padding: 0rem 5%;
-    background-color: var(--black);
+    background-color: var(--ink);
     min-height: 100vh;
 }
 
@@ -254,7 +259,7 @@ header #menu-btn:hover{
 .home .image img {
     width: 100%;       /* fill that container */
     height: auto;      /* keep its natural aspect ratio */
-    border: 1rem solid var(--purple);
+    border: 1rem solid var(--accent);
     /* remove any rounding so it stays a rectangle */
     border-radius: 0;
     object-fit: cover;
@@ -283,7 +288,7 @@ header #menu-btn:hover{
 .home .content h2{
     font-size: 2.5rem;
     font-weight: 400;
-    color: var(--purple);
+    color: var(--accent);
 }
 
 .home .content h1{
@@ -294,7 +299,7 @@ header #menu-btn:hover{
 }
 
 .home .content h1 span{
-    color: var(--purple);
+    color: var(--accent);
 
 }
 
@@ -383,14 +388,14 @@ header #menu-btn:hover{
     flex-direction: column;  /* stack its children vertically */
     justify-content: center; /* center the number and label vertically */
     text-align: center;
-    background-color: #222;
+    background-color: var(--panel);
     padding: 2rem;
 }
 
 /* the rest stays the same */
 .counting .box .count {
     font-size: 3.5rem;
-    color: var(--purple);
+    color: var(--accent);
     padding-bottom: 0.5rem;
 }
 
@@ -437,7 +442,7 @@ header #menu-btn:hover{
 
  .skill-item .box .progress-bar{
     width:100%;
-    background:#222;
+    background:var(--panel);
     overflow:hidden;
     height:1rem;
     border-radius: 50rem;
@@ -446,7 +451,7 @@ header #menu-btn:hover{
  .skill-item .box .progress-bar span{
     display:block;
     height:100%;
-    background: var(--purple);
+    background: var(--accent);
 }
 
  .skill-item.item1 .box:nth-child(1) .progress-bar span{
@@ -505,7 +510,7 @@ header #menu-btn:hover{
     -ms-flex: 1 1 40rem;
         flex: 1 1 40rem;
     padding: 0 3rem 2rem 3rem;
-    border-left: 0.2rem solid var(--purple);
+    border-left: 0.2rem solid var(--accent);
     margin-left: 2rem;
 }
 
@@ -520,7 +525,7 @@ header #menu-btn:hover{
     text-align: center;
     font-size: 2rem;
     color:var(--white);
-    background:var(--purple);
+    background:var(--accent);
 }
 
 .experience-item .content{
@@ -530,7 +535,7 @@ header #menu-btn:hover{
 }
 
 .experience-item span{
-    background: #222;
+    background: var(--panel);
     color: var(--white);
     padding: 0.5rem 1.5rem;
     font-size: 1.8rem;
@@ -586,7 +591,7 @@ header #menu-btn:hover{
     -webkit-box-flex: 1;
     -ms-flex: 1 1 33rem;
         flex: 1 1 33rem;
-    background-color: var(--black);
+    background-color: var(--ink);
     padding: 4rem 3rem;
     text-align: center;
     border: 0.1rem solid rgba(255,255, 255, 0.3);
@@ -598,7 +603,7 @@ header #menu-btn:hover{
 }
 
 .service-item:hover{
-    background-color: var(--purple);
+    background-color: var(--accent);
 }
 
 .service-item i{
@@ -650,7 +655,7 @@ header #menu-btn:hover{
 
 .controls .button.active{
     cursor: pointer;
-    background-color: var(--purple);
+    background-color: var(--accent);
     color: var(--white);
 }
 
@@ -683,7 +688,7 @@ header #menu-btn:hover{
     height: 80%;
     width: 80%;
     border-radius: 0.5rem;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(15, 33, 56, 0.92);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -704,7 +709,7 @@ header #menu-btn:hover{
 .portfolio-item .content h4{
     font-size: 2rem;
     font-weight: bold;
-    color: var(--purple);
+    color: var(--accent);
     transform-origin: top;
     -webkit-transform: translateY(-10rem);
             transform: translateY(-10rem);
@@ -732,7 +737,7 @@ header #menu-btn:hover{
 
 .portfolio-item .content .view-btn{
     font-size: 2rem;
-    color: var(--purple);
+    color: var(--accent);
     transform-origin: top;
     -webkit-transform: translateY(-10rem);
             transform: translateY(-10rem);
@@ -834,7 +839,7 @@ header #menu-btn:hover{
 }
 
 .testi-item:hover{
-    border-color: var(--purple);
+    border-color: var(--accent);
 }
 
 .testi-item img{
@@ -868,7 +873,7 @@ header #menu-btn:hover{
 }
 
 .testi-item .intro h5{
-    color: var(--purple);
+    color: var(--accent);
     font-size: 1.4rem;
     font-weight: 400;
 }
@@ -885,7 +890,7 @@ header #menu-btn:hover{
 }
 
 .blog-item{
-    background-color: #222;
+    background-color: var(--panel);
     border: 0.1rem solid rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
     overflow: hidden;
@@ -928,7 +933,7 @@ header #menu-btn:hover{
 }
 
 .blog-item .content .intro h5 i{
-    color: var(--purple);
+    color: var(--accent);
     padding-right: 0.5rem;
 }
 
@@ -959,7 +964,7 @@ header #menu-btn:hover{
 /*--------------------- 11- Contact Area CSS (Start) ---------------------*/
 .contact .alert{
     font-size: 2rem;
-    color: var(--purple);
+    color: var(--accent);
     border-radius: 0.5rem;
     padding-left: 1rem;
 }
@@ -1023,7 +1028,7 @@ header #menu-btn:hover{
 .contact-info .info-item .detail .fas,
 .contact-info .info-item .detail .fab{
     border-radius: 50%;
-    color: var(--purple);
+    color: var(--accent);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;;
@@ -1066,7 +1071,7 @@ header #menu-btn:hover{
     border: 0.1rem solid rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
     margin: 0.5rem 0;
-    background-color: #222;
+    background-color: var(--panel);
 }
 
 .contact-form .box:focus{
@@ -1092,7 +1097,7 @@ header #menu-btn:hover{
 
 /*--------------------- 12- Footer Area CSS (Start) ---------------------*/
 footer{
-    background-color: var(--purple);
+    background-color: var(--accent);
     padding: 2rem 0;
     text-align: center;
 }
@@ -1108,7 +1113,7 @@ footer .social{
 }
 
 footer .social .fab{
-    background-color: var(--black);
+    background-color: var(--ink);
     border-radius: 50%;
     height: 4rem;
     width: 4rem;
@@ -1127,7 +1132,7 @@ footer .social .fab{
 }
 
 footer .social .fas{
-    background-color: var(--black);
+    background-color: var(--ink);
     border-radius: 50%;
     height: 4rem;
     width: 4rem;
@@ -1146,7 +1151,7 @@ footer .social .fas{
 }
 
 footer .social .fab:hover{
-    color: var(--black);
+    color: var(--ink);
     background-color: var(--white);
 }
 
@@ -1156,7 +1161,7 @@ footer .content p{
 }
 
 footer .content p span{
-    color: var(--black);
+    color: var(--ink);
 }
 
 /*--------------------- 12- Footer Area CSS (End) ---------------------*/
@@ -1172,7 +1177,7 @@ footer .content p span{
     width: 5rem;
     font-size: 3rem;
     font-weight:lighter;
-    background: var(--black);
+    background: var(--ink);
     color: var(--white);
     border: 0.2rem solid var(--white);
     border-radius: 50%;
@@ -1194,7 +1199,7 @@ footer .content p span{
 
   .scroll-top:hover{
     background: var(--white);
-    color:var(--black);
+    color:var(--ink);
   }
 
   
@@ -1210,3 +1215,641 @@ footer .content p span{
       overflow-x: auto;         /* allow horizontal scroll if it *does* overflow */
     }
   }
+
+/*=====================================================================
+  2026 refresh: typography, palette, and new sections
+  (kept at the end so it overrides the original theme rules above)
+=====================================================================*/
+
+*::selection{
+    color: var(--ink);
+    background-color: var(--accent);
+}
+
+body{
+    color: var(--white);
+    line-height: 1.5;
+}
+
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.box:focus-visible{
+    outline: 0.3rem solid var(--accent);
+    outline-offset: 0.3rem;
+}
+
+section{
+    padding: 7rem 5%;
+}
+
+/* ---------- Headings ---------- */
+.heading{
+    margin-bottom: 4rem;
+}
+
+.heading h2{
+    font-family: var(--serif);
+    font-weight: 700;
+    color: var(--white);
+    font-size: 3.8rem;
+    letter-spacing: -0.02em;
+    padding-bottom: 1.6rem;
+    position: relative;
+}
+
+.heading h2::after{
+    content: '';
+    display: block;
+    width: 5rem;
+    height: 0.3rem;
+    margin: 1.6rem auto 0;
+    background: var(--accent);
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 1.1rem 2.2rem;
+    border-width: 0.15rem;
+    border-radius: 0.3rem;
+}
+
+.btn:hover{
+    color: var(--ink);
+    background-color: var(--accent);
+}
+
+.btn-solid{
+    color: var(--ink);
+    background-color: var(--accent);
+}
+
+.btn-solid:hover{
+    background-color: var(--accent-deep);
+    border-color: var(--accent-deep);
+}
+
+/* ---------- Header ---------- */
+header .logo h2{
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+header .navbar a{
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-left: 2rem;
+}
+
+header.sticky{
+    border-bottom: 0.1rem solid var(--line);
+}
+
+/* ---------- Home ---------- */
+.home{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.home .content h2{
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.home .content h1{
+    font-family: var(--serif);
+    font-size: 5.2rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    min-height: 7.5rem;
+}
+
+.home .content h1 span{
+    color: var(--white);
+}
+
+.home .content p{
+    font-size: 1.9rem;
+    color: var(--grey);
+    max-width: 58rem;
+    line-height: 1.6;
+    padding-bottom: 3rem;
+}
+
+.hero-actions{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+}
+
+.home .image img{
+    border: 0.4rem solid var(--accent);
+    box-shadow: 1.6rem 1.6rem 0 var(--panel-2);
+}
+
+/* ---------- About ---------- */
+.about .box-container{
+    gap: 4rem;
+}
+
+.about .content h2{
+    font-family: var(--serif);
+    font-size: 2.6rem;
+    line-height: 1.3;
+    padding-bottom: 1.6rem;
+}
+
+.about .content > p{
+    font-size: 1.75rem;
+    line-height: 1.7;
+    max-width: 68ch;
+    padding-bottom: 1.4rem;
+}
+
+.about .content .about-info{
+    margin-top: 1rem;
+    padding-top: 2rem;
+    border-top: 0.1rem solid var(--line);
+}
+
+.about .content .about-info .info h4{
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.counting{
+    align-content: flex-start;
+}
+
+.counting .box{
+    background-color: var(--panel);
+    border-top: 0.3rem solid var(--accent);
+    text-align: left;
+    padding: 2.4rem;
+}
+
+.counting .box .count{
+    font-family: var(--serif);
+    font-size: 4.4rem;
+    color: var(--accent);
+}
+
+.counting .box h3{
+    font-size: 1.55rem;
+    font-weight: 500;
+    color: var(--grey);
+    line-height: 1.45;
+}
+
+/* Skills as grouped tags */
+.skill-container{
+    padding-top: 6rem;
+}
+
+.skill-groups{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 3rem 4rem;
+}
+
+.skill-group h3{
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--accent);
+    padding-bottom: 1rem;
+}
+
+.tags{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.tags li{
+    font-size: 1.45rem;
+    color: var(--white);
+    background: var(--panel);
+    border: 0.1rem solid var(--line);
+    border-radius: 0.3rem;
+    padding: 0.5rem 1.1rem;
+}
+
+/* ---------- Teaching & Leadership ---------- */
+.leadership{
+    background-color: #132845;
+    border-top: 0.1rem solid var(--line);
+    border-bottom: 0.1rem solid var(--line);
+}
+
+.lead-intro{
+    max-width: 78rem;
+    margin: 0 auto 4.5rem;
+}
+
+.lead-intro p{
+    font-family: var(--serif);
+    font-size: 2.1rem;
+    line-height: 1.65;
+    color: var(--white);
+    text-align: center;
+}
+
+.lead-stats{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    border-top: 0.1rem solid var(--line);
+    border-bottom: 0.1rem solid var(--line);
+    margin-bottom: 5rem;
+}
+
+.lead-stats > div{
+    padding: 2.6rem 2rem;
+    border-right: 0.1rem solid var(--line);
+}
+
+.lead-stats > div:last-child{
+    border-right: none;
+}
+
+.lead-stats strong{
+    display: block;
+    font-family: var(--serif);
+    font-size: 3.6rem;
+    color: var(--accent);
+    line-height: 1.1;
+    padding-bottom: 0.6rem;
+}
+
+.lead-stats span{
+    font-size: 1.5rem;
+    color: var(--grey);
+    line-height: 1.45;
+}
+
+.lead-groups{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(42rem, 1fr));
+    gap: 4.5rem 6rem;
+}
+
+.lead-group h3{
+    font-family: var(--serif);
+    font-size: 2.3rem;
+    color: var(--white);
+    padding-bottom: 1.4rem;
+    margin-bottom: 1.4rem;
+    border-bottom: 0.1rem solid var(--line);
+}
+
+.lead-group h3 i{
+    color: var(--accent);
+    font-size: 1.9rem;
+    width: 3rem;
+}
+
+.lead-group ul{
+    list-style: none;
+}
+
+.lead-group li{
+    font-size: 1.6rem;
+    line-height: 1.65;
+    color: var(--grey);
+    padding: 1rem 0 1rem 1.6rem;
+    border-left: 0.2rem solid var(--panel-2);
+    margin-bottom: 0.4rem;
+}
+
+.lead-group li:hover{
+    border-left-color: var(--accent);
+}
+
+.lead-group li strong{
+    color: var(--white);
+    font-weight: 600;
+}
+
+/* ---------- Experience & Education ---------- */
+.experience{
+    max-width: 110rem;
+    margin: 0 auto;
+}
+
+.experience-item{
+    border-left-color: var(--panel-2);
+}
+
+.experience-item i{
+    color: var(--ink);
+    background: var(--accent);
+}
+
+.experience-item span{
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--panel);
+}
+
+.experience-item h3{
+    font-family: var(--serif);
+    font-size: 2.3rem;
+    line-height: 1.3;
+    padding: 1.6rem 0 0.4rem;
+}
+
+.experience-item .org{
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--grey);
+    padding-bottom: 1rem;
+}
+
+.experience-item p{
+    max-width: 80ch;
+}
+
+.experience-list li{
+    color: var(--white);
+    max-width: 80ch;
+}
+
+.experience-list li::marker{
+    color: var(--accent);
+}
+
+#education .box-container{
+    align-items: flex-start;
+    max-width: 110rem;
+    margin: 0 auto;
+}
+
+.certs{
+    flex: 1 1 36rem;
+    background: var(--panel);
+    border-top: 0.3rem solid var(--accent);
+    padding: 3rem;
+}
+
+.certs h3{
+    font-family: var(--serif);
+    font-size: 2.3rem;
+    color: var(--white);
+    padding-bottom: 1.4rem;
+}
+
+.certs ul{
+    list-style: none;
+}
+
+.certs li{
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: var(--grey);
+    padding: 0.9rem 0;
+    border-bottom: 0.1rem solid var(--line);
+    display: flex;
+    gap: 1.2rem;
+}
+
+.certs li:last-child{
+    border-bottom: none;
+}
+
+.certs li i{
+    color: var(--accent);
+    padding-top: 0.3rem;
+}
+
+/* ---------- What I do ---------- */
+.service .box-container{
+    align-items: stretch;
+}
+
+.service-item{
+    text-align: left;
+    background-color: var(--panel);
+    border: 0.1rem solid var(--line);
+    border-radius: 0.3rem;
+    padding: 3.2rem 2.8rem;
+}
+
+.service-item:hover{
+    background-color: var(--panel);
+    border-color: var(--accent);
+}
+
+.service-item i{
+    color: var(--accent);
+    font-size: 3rem;
+}
+
+.service-item h3{
+    font-family: var(--serif);
+    font-size: 2.1rem;
+}
+
+.service-item:hover p{
+    color: var(--grey);
+}
+
+/* ---------- Projects ---------- */
+.controls .button{
+    font-size: 1.5rem;
+}
+
+.controls .button.active{
+    color: var(--ink);
+    background-color: var(--accent);
+}
+
+.portfolio .box-container{
+    gap: 1.2rem;
+}
+
+.portfolio-item{
+    border-radius: 0.3rem;
+    background: var(--panel);
+    border: 0.1rem solid var(--line);
+}
+
+.portfolio-item .thumb{
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.tile-face{
+    display: flex !important;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2.8rem;
+    background: var(--panel);
+    color: var(--white);
+}
+
+.tile-face i{
+    font-size: 3.4rem;
+    color: var(--accent);
+    margin-bottom: auto;
+}
+
+.tile-face strong{
+    font-family: var(--serif);
+    font-size: 2.3rem;
+    line-height: 1.25;
+    color: var(--white);
+}
+
+.tile-face small{
+    font-size: 1.45rem;
+    color: var(--grey);
+    padding-top: 0.6rem;
+}
+
+.portfolio-item .content{
+    padding: 2rem;
+    text-align: center;
+    gap: 1rem;
+}
+
+.portfolio-item .content h4{
+    font-family: var(--serif);
+    color: var(--accent);
+    padding-bottom: 0;
+}
+
+.portfolio-item .content p{
+    font-size: 1.55rem;
+    line-height: 1.45;
+}
+
+.portfolio-item .content .disclaimer{
+    font-size: 1.3rem;
+    color: var(--grey);
+}
+
+.portfolio-item .content .demo-btn{
+    font-size: 1.4rem;
+    padding: 0.8rem 1.6rem;
+}
+
+.portfolio-item .content .demo-btn i{
+    padding-left: 0;
+    padding-right: 0.6rem;
+}
+
+/* ---------- Contact ---------- */
+.contact .box-container{
+    align-items: flex-start;
+    max-width: 110rem;
+    margin: 0 auto;
+}
+
+.contact-info h3{
+    font-family: var(--serif);
+}
+
+.contact-info > p{
+    font-size: 1.7rem;
+    line-height: 1.6;
+    max-width: 50ch;
+    padding-bottom: 1rem;
+}
+
+.contact-form .box{
+    color: var(--white);
+    background-color: var(--panel);
+    border: 0.1rem solid var(--line);
+    border-radius: 0.3rem;
+}
+
+.contact-form .box:focus{
+    border-color: var(--accent);
+}
+
+/* ---------- Footer ---------- */
+footer{
+    background-color: #0B1A2D;
+    border-top: 0.3rem solid var(--accent);
+}
+
+footer .social .fab,
+footer .social .fas{
+    color: var(--white);
+    background-color: var(--panel);
+}
+
+footer .social a:hover .fas,
+footer .social .fab:hover,
+footer .social .fas:hover{
+    color: var(--ink);
+    background-color: var(--accent);
+}
+
+footer .copyright{
+    font-size: 1.4rem;
+    color: var(--grey);
+    padding-bottom: 1rem;
+}
+
+.scroll-top{
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.scroll-top:hover{
+    background: var(--accent);
+    color: var(--ink);
+}
+
+/* ---------- Motion preferences ---------- */
+@media (prefers-reduced-motion: reduce){
+    *{
+        -webkit-transition: none !important;
+                transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ---------- Refresh: small screens ---------- */
+@media (max-width: 768px){
+    section{
+        padding: 5rem 2rem;
+    }
+    .home .content h1{
+        font-size: clamp(3rem, 8vw, 5.2rem);
+        min-height: 5rem;
+    }
+    .lead-groups{
+        grid-template-columns: 1fr;
+    }
+    .lead-stats > div{
+        border-right: none;
+        border-bottom: 0.1rem solid var(--line);
+    }
+    .lead-intro p{
+        font-size: 1.85rem;
+        text-align: left;
+    }
+}
+
+@media (max-width: 450px){
+    .lead-groups,
+    .skill-groups{
+        grid-template-columns: 1fr;
+    }
+    .experience-item{
+        padding: 0 1rem 2rem 3rem;
+    }
+}

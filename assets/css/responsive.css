@@ -16,8 +16,8 @@
         right: 0; 
         top:100%;
         padding: 0rem 2rem;
-        background: #F7F5F2;
-        border: 0.1rem solid #BC8CF2;
+        background: #0F2138;
+        border: 0.1rem solid #D9A441;
         -webkit-transition: 0.2s linear;
         -moz-transition: 0.2s linear;
         -o-transition: 0.2s linear;
@@ -37,7 +37,7 @@
   
     .header .navbar a{
         display: block;
-        color: #000000;
+        color: #F2EFE8;
         padding: 1.5rem 0;
         margin: 1rem 0;
     }
@@ -48,15 +48,19 @@
   
     .navbar::-webkit-scrollbar-thumb{
         border-radius: 1rem;
-        background-color: #BC8CF2;
+        background-color: #D9A441;
     }
   
     .navbar::-webkit-scrollbar-track{
         background: transparent;
     }
 
-    section, header{
+    header{
         padding: 2rem;
+    }
+
+    section{
+        padding: 5rem 2.4rem;
     }
 
 }
@@ -66,8 +70,12 @@
         font-size: 50%;
     }
 
-    section, header{
-        padding: 1rem;
+    header{
+        padding: 1.5rem 2rem;
+    }
+
+    section{
+        padding: 4.5rem 2.4rem;
     }
 
 
